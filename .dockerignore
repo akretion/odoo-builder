@@ -1,0 +1,11 @@
+**/.git/**/*
+**/.git
+**/.gitignore
+**/.travis.yml
+**/LICENSE
+**/*.pyc
+**/README.md
+**/*.egg-info
+local-src/**/*
+external-src/**/*
+src/addons

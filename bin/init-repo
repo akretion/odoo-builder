@@ -1,0 +1,64 @@
+#!/usr/bin/python3
+
+import subprocess
+import os
+
+subprocess.run(["git", "clone", "https://github.com/oca/ocb", "src"])
+subprocess.run(["git", "fetch", "--all"], cwd="/builder/src")
+
+
+OCA_PROJECT = [
+    "account-financial-reporting",
+    "account-financial-tools",
+    "account-fiscal-rule",
+    "account-invoice-reporting",
+    "account-invoicing",
+    "account-payment",
+    "account-reconcile",
+    "bank-payment",
+    "bank-statement-import",
+    "community-data-files",
+    "connector",
+    "connector-ecommerce",
+    "connector-telephony",
+    "contract",
+    "crm",
+    "delivery-carrier",
+    "e-commerce",
+    "edi",
+    "hr",
+    "hr-timesheet",
+    "intrastat",
+    "l10n-france",
+    "manufacture",
+    "partner-contact",
+    "pos",
+    "product-attribute",
+    "product-variant",
+    "project",
+    "project-reporting",
+    "purchase-reporting",
+    "purchase-workflow",
+    "reporting-engine",
+    "sale-financial",
+    "sale-reporting",
+    "sale-workflow",
+    "server-auth",
+    "server-tools",
+    "social",
+    "stock-logistics-barcode",
+    "stock-logistics-reporting",
+    "stock-logistics-warehouse",
+    "stock-logistics-workflow",
+    "web"
+    ]
+
+os.mkdir("/builder/external-src")
+
+for project in OCA_PROJECT:
+    subprocess.run(
+        ["git", "clone", "https://github.com/oca/{}".format(project)],
+        cwd="/builder/external-src")
+    subprocess.run(
+        ["git", "fetch", "--all"],
+        cwd="/builder/external-src/{}".format(project))
