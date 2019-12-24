@@ -1,0 +1,7 @@
+#!/bin/bash
+echo $BUILD_MODE
+
+if [ "$BUILD_MODE" == "production" ]
+then
+    exec "$@"
+fi

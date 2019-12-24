@@ -4,6 +4,10 @@ import subprocess
 import os
 
 subprocess.run(["git", "clone", "https://github.com/oca/ocb", "src"])
+for orga in ['akretion', 'acsone', 'camptocamp']:
+    subprocess.run(
+        ["git", "remote", "add", orga, "https://github.com/{}/odoo".format(orga)],
+        cwd="/builder/src")
 subprocess.run(["git", "fetch", "--all"], cwd="/builder/src")
 
 
