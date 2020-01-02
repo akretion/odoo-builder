@@ -10,3 +10,6 @@ COPY bin/build-odoo /usr/local/bin/build-odoo
 COPY bin/init-repo /usr/local/bin/init-repo
 WORKDIR /builder
 RUN init-repo
+
+# Extra cmd tools
+COPY bin/update-spec /usr/local/bin/update-spec

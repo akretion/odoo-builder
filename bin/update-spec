@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+echo "Start to update odoo-frozen.yaml and frozen.yaml"
+
+ak build -c odoo-spec.yaml
+ak freeze -c odoo-spec.yaml -o /tmp-frozen/odoo-frozen.yaml
+echo "odoo-frozen.yaml have been generated"
+
+ak build -c spec.yaml
+ak freeze -c spec.yaml -o /tmp-frozen/frozen.yaml
+echo "frozen.yaml have been generated"
+
+USER_ID=$(stat -c %u odoo-spec.yaml)
+chown $USER_ID:$USER_ID /tmp-frozen/*
