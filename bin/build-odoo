@@ -8,6 +8,6 @@ then
     rm -rf /builder/src/.git
 else
     cd /builder/src
-    git checkout $ODOO_VERSION
+    git checkout origin/$ODOO_VERSION
     rm -rf /builder/src/.git
 fi
