@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
-ak build -c odoo-spec.yaml -f odoo-frozen.yaml
-rm -rf /builder/src/addons/*
-mv /builder/links/* /builder/src/addons
-rm -rf /builder/src/.git
+if [[ $BUILD_MODE == 'production' ]]
+then
+    ak build -c odoo-spec.yaml -f odoo-frozen.yaml
+    rm -rf /builder/src/addons/*
+    mv /builder/links/* /builder/src/addons
+    rm -rf /builder/src/.git
+else
+    cd /builder/src
+    git checkout $ODOO_VERSION
+    rm -rf /builder/src/.git
+fi
