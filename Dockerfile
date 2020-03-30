@@ -4,7 +4,7 @@ RUN apt-get update \
 RUN pip3 install git+https://github.com/akretion/ak@00ef9bb7475a7a062c2c38adaf5272b0da5808c5
 RUN git config --global user.email "bot@akretion.com" && git config --global user.name "Akretion Bot"
 
-RUN mkdir /builder
+RUN mkdir -p /builder/links
 COPY bin/build-odoo /usr/local/bin/build-odoo
 COPY bin/build-odoo-external /usr/local/bin/build-odoo-external
 COPY bin/init-repo /usr/local/bin/init-repo
