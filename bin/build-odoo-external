@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 if [[ $BUILD_MODE == 'production' ]]
 then
     ak build
@@ -9,7 +9,7 @@ then
     find . -type f -name ".*" -delete
     find . -type f -name "oca_dependencies.txt" -delete
     rm -rf */setup
-    if [[ BUILD_RESTRICT_LANG ]]
+    if [[ $BUILD_RESTRICT_LANG ]]
     then
         find . -name *.po ! -name $BUILD_RESTRICT_LANG -type f -exec rm -v {} +
     fi
