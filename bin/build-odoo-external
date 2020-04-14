@@ -3,4 +3,14 @@ set -e
 if [[ $BUILD_MODE == 'production' ]]
 then
     ak build
+    # clean useless file
+    cd /builder/external-src
+    rm -rf */.git*
+    find . -type f -name ".*" -delete
+    find . -type f -name "oca_dependencies.txt" -delete
+    rm -rf */setup
+    if [[ BUILD_RESTRICT_LANG ]]
+    then
+        find . -name *.po ! -name $BUILD_RESTRICT_LANG -type f -exec rm -v {} +
+    fi
 fi

@@ -1,7 +1,7 @@
 FROM debian:buster
 RUN apt-get update \
     && apt-get install -y --no-install-recommends git ca-certificates python3-pip python3-dev python3-setuptools
-RUN pip3 install git+https://github.com/akretion/ak@00ef9bb7475a7a062c2c38adaf5272b0da5808c5
+RUN pip3 install git+https://github.com/akretion/ak@2.0.7
 RUN git config --global user.email "bot@akretion.com" && git config --global user.name "Akretion Bot"
 
 RUN mkdir -p /builder/links
