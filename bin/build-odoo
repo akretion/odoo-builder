@@ -8,7 +8,7 @@ then
     cp -r -L /builder/links /builder/odoo-addons
     rm -rf /builder/src/addons/*
     mv /builder/odoo-addons/* /builder/src/addons
-    if [[ BUILD_RESTRICT_LANG ]]
+    if [[ ! -z $BUILD_RESTRICT_LANG ]]
     then
         find /builder/src/ -name *.po ! -name $BUILD_RESTRICT_LANG -type f -exec rm -v {} +
     fi
