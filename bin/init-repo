@@ -55,7 +55,7 @@ OCA_PROJECT = [
     "server-brand",
     "server-env",
     "server-tools",
-    "server-ux"
+    "server-ux",
     "social",
     "stock-logistics-barcode",
     "stock-logistics-reporting",
